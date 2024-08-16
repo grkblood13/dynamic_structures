@@ -19,7 +19,7 @@ void attachToMasterStruct() {
 		perror("shmget failed");
 		exit(EXIT_FAILURE);
 	}
-	
+
 	globalStruct = (MasterStruct *)shmat(shmid, NULL, 0);
 	if (globalStruct == (void *)-1) {
 		perror("shmat failed");
