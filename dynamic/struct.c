@@ -13,8 +13,8 @@ int ENV_C4_BUF_CNT;
 volatile MasterStruct *globalStruct = NULL;  // Define global pointer
 
 int get_env_var_as_int(const char *varname) {
-    const char *value = getenv(varname);
-    return value ? atoi(value) : 0;
+	const char *value = getenv(varname);
+	return value ? atoi(value) : 0;
 }
 
 void setEnvars() {
