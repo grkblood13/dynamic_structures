@@ -70,8 +70,6 @@ void printMasterStruct(volatile MasterStruct *ptr) {
     printf("int_member: %d\n", ptr->int_member);
     printf("double_member: %f\n", ptr->double_member);
 
-	printf("short_member_offset: %zu\n", ptr->short_member_offset);
-
     // Print short_member
     printf("short_member: ");
     for (int i = 0; i < ENV_SIZE; i++) {
