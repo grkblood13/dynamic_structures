@@ -1,6 +1,6 @@
 # dynamic_structures
 
-This example, which is only half working, is an attempt to take a previously static structure that used defines to set the sizes of it's members and change it to a dynamic structure that uses environment variables at run-time.
+This example is an attempt to take a previously static structure that used defines to set the sizes of its members and change it to a dynamic structure that uses environment variables at run-time.
 
 The structure in question has many different flavors of members, and all must be working to match the output of the "static" example.
 
@@ -17,5 +17,3 @@ The dynamic folder is an attempt to mimic the behavior of static, but using envi
 The two conditions of this example is that the envars must be used at run-time, NOT compile-time, the original structure members must stay intact (ie we add offset members), and of course the structure members using the envars must be dynamic.
 
 There are various functions called in main() that do different things such as set test values, zero out the structure, print the structure, detach the structure and destroy the structure.
-
-As noted, the "dynamic" example does not work properly. Additionally, test_functions.c is the same in both folders.
