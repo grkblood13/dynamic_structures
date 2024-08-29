@@ -14,7 +14,7 @@ void setTestValues(volatile MasterStruct *ptr) {
     for (int i = 0; i < ENV_SIZE; i++) {
         ptr->short_member[i] = (short)(i % 256);
     }
-
+printf("1\n");
     // Set test values for Custom1_Struct
     for (int i = 0; i < ENV_C1_BUF_CNT; i++) {
         ptr->custom1_member[i].C1_timestamp = (double)time(NULL) + i;
@@ -22,6 +22,7 @@ void setTestValues(volatile MasterStruct *ptr) {
             ptr->custom1_member[i].C1_buffer[j] = (short)(j % 512);
         }
     }
+printf("2\n");
 
     // Set test values for Custom2_Struct
     for (int i = 0; i < ENV_C2_BUF_CNT; i++) {
@@ -31,6 +32,7 @@ void setTestValues(volatile MasterStruct *ptr) {
             ptr->custom2_member[i].C2_buffer[j].im = (float)(255 - (j % 256)) / 256.0f;
         }
     }
+printf("3\n");
 
     // Set test values for Custom3_Struct
     for (int i = 0; i < ENV_C3_BUF_CNT; i++) {
@@ -41,6 +43,7 @@ void setTestValues(volatile MasterStruct *ptr) {
             }
         }
     }
+printf("4\n");
 
 	// Set test values for Custom4_Struct
     for (int i = 0; i < ENV_C4_CHAN_CNT + 2; i++) {
@@ -51,7 +54,9 @@ void setTestValues(volatile MasterStruct *ptr) {
             }
         }
     }
-	
+
+printf("5\n");
+
     // Set test values for Custom5_Struct
     for (int i = 0; i < ENV_C5_MAX_PER_CHAN; i++) {
         ptr->custom5_member[i].freq = i * 1000;

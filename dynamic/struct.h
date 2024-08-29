@@ -47,23 +47,14 @@ typedef struct {
 typedef struct {
 	int int_member;
 	double double_member;
-
-	// Offsets for pointers
-	// These were added to handle pointer data
-	size_t short_member_offset;
-	size_t custom1_member_offset;
-	size_t custom2_member_offset;
-	size_t custom3_member_offset;
-	size_t custom4_member_row_offset;
-	size_t custom4_member_col_offset;
-
+	Custom5_Struct custom5_member[ENV_C5_MAX_PER_CHAN];
+	
 	// Actual pointers for the program
 	short *short_member; // [ENV_SIZE]
 	Custom1_Struct *custom1_member; // [ENV_C1_BUF_CNT]
 	Custom2_Struct *custom2_member; // [ENV_C2_BUF_CNT]
 	Custom3_Struct *custom3_member; // [ENV_C3_BUF_CNT]
 	Custom4_Struct **custom4_member; // [ENV_C4_CHAN_CNT+2][ENV_C4_BUF_CNT]
-	Custom5_Struct custom5_member[ENV_C5_MAX_PER_CHAN];
 } MasterStruct;
 
 extern volatile MasterStruct *globalStruct;  // Declare global pointer
