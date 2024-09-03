@@ -1,10 +1,10 @@
 # dynamic_structures
 
-This example is an attempt to take a previously static structure that used defines to set the sizes of its members and change it to a dynamic structure that uses environment variables at run-time.
+These examples are an attempt to take a previously static structure that used defines to set the sizes of its members and change it to a dynamic structure that uses environment variables at run-time.
 
 The structure in question has many different flavors of members, and all must be working to match the output of the "static" example.
 
-To run static to see the expected behavior, first run "make" from the root directory. This will create a "first_program" and "second_program" in both the static and dynamic folders.
+To run static to see the expected behavior, first run "make" from the complex directory. This will create a "first_program" and "second_program" in both the static and dynamic folders.
 
 Then, open two terminals side-by-side and cd to "static".
 
