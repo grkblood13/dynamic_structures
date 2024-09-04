@@ -1,4 +1,5 @@
 // gcc -o first_program first_program.c common.c test_functions.c -lrt
+
 #define _GNU_SOURCE
 #include "struct.h"
 #include <signal.h>
@@ -26,7 +27,8 @@ volatile SimpleStruct *initializeSimpleStruct() {
 	}
 
 	// Attach shared memory segment to the process's address space
-	void *shared_mem_ptr = shmat(shmid, NULL, 0);
+	//void *shared_mem_ptr = shmat(shmid, NULL, 0); // not defining a memory address location will result in issues when using pointers
+	void *shared_mem_ptr = shmat(shmid, (void *)0x50000000, 0);
 	if (shared_mem_ptr == (void *)-1) {
 		perror("shmat");
 		exit(EXIT_FAILURE);
