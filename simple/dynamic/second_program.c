@@ -13,7 +13,8 @@ void attachToSimpleStruct() {
 		exit(EXIT_FAILURE);
 	}
 
-	void *shared_mem_ptr = (SimpleStruct *)shmat(shmid, NULL, 0);
+	//void *shared_mem_ptr = (SimpleStruct *)shmat(shmid, NULL, 0);
+	void *shared_mem_ptr = (SimpleStruct *)shmat(shmid, (void *)0x50000000, 0);
 	if (simpleStruct == (void *)-1) {
 		perror("shmat failed");
 		exit(EXIT_FAILURE);

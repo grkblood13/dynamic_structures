@@ -26,7 +26,8 @@ volatile SimpleStruct *initializeSimpleStruct() {
 	}
 
 	// Attach shared memory segment to the process's address space
-	void *shared_mem_ptr = shmat(shmid, NULL, 0);
+	//void *shared_mem_ptr = shmat(shmid, NULL, 0);
+	void *shared_mem_ptr = shmat(shmid, (void *)0x50000000, 0);
 	if (shared_mem_ptr == (void *)-1) {
 		perror("shmat");
 		exit(EXIT_FAILURE);
@@ -36,13 +37,13 @@ volatile SimpleStruct *initializeSimpleStruct() {
 
 	char *offset = (char *)shared_mem_ptr + sizeof(SimpleStruct);
 
-	simpleStruct->short_member_1 =  (short *)offset;
 	simpleStruct->short_member_1_offset = offset - (char *)shared_mem_ptr;
+	simpleStruct->short_member_1 =  (short *)((char *)shared_mem_ptr + simpleStruct->short_member_1_offset);
 	offset += ENV_SIZE * sizeof(short);
 
-	simpleStruct->short_member_2 =  (short *)offset;
 	simpleStruct->short_member_2_offset = offset - (char *)shared_mem_ptr;
-	
+	simpleStruct->short_member_2 =  (short *)((char *)shared_mem_ptr + simpleStruct->short_member_2_offset);
+
 	return simpleStruct;
 }
 
